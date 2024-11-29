@@ -373,3 +373,41 @@
         transform: scale(0) rotate(-0.5turn);
     }
 }
+
+.birthday-screen {
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.birthday-screen h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+.birthday-screen p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.box-hidden {
+    display: none;
+}
+
+/* Hiệu ứng tràn màu nền từ trong hộp ra khắp màn hình */
+@keyframes backgroundColorChange {
+    0% {
+        background-color: #bda9a9;
+    }
+
+    100% {
+        background-color: #302929;
+    }
+}
+
+/* Chuyển màu nền khi mở hộp */
+.container.background-change {
+    animation: backgroundColorChange 2s ease-out forwards;
+}
