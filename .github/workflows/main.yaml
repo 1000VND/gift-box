@@ -3,7 +3,7 @@ name: CI/CD to GitHub Pages
 on:
   push:
     branches:
-      - main # Thay 'main' bằng branch chính của bạn
+      - main
 
 jobs:
   deploy:
