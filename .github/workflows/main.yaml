@@ -1,4 +1,4 @@
-name: Angular Build and Deploy
+name: CI/CD to GitHub Pages
 
 on:
   push:
@@ -6,24 +6,23 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run build -- --configuration production --base-href="/gift-box/"
 
-      - name: Build Angular app to prod
-        working-directory: gift-box
-        run: npm install && npm run build:prod
+      - name: Handle 404.html
+        run: cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
-        uses: 1000VND/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: gift-box/dist/browser
-          branch: main  
-          token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./dist/browser
