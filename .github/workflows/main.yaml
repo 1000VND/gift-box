@@ -18,6 +18,9 @@ jobs:
           npm install
           npm run build -- --configuration production --base-href="/gift-box/"
 
+      - name: Handle 404.html
+        run: cp dist/gift-box/index.html dist/gift-box/404.html
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
