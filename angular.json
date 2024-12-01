@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "birthday-wish-ntht": {
+    "gift-box": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -34,13 +34,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "250kb",
+                  "maximumError": "300kb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "250kb",
+                  "maximumError": "300kb"
                 }
               ],
               "outputHashing": "all"
