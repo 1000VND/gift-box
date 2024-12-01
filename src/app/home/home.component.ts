@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.isBackgroundChanged = true;
 
     // Hiệu ứng pháo hoa
-    const duration = 8 * 1000; // Thời gian pháo hoa
+    const duration = 99999999 * 1000; // Thời gian pháo hoa
     this.startConfetti(duration);
 
     this.showBirthdayScreen = true;
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: this.randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        origin: { x: this.randomInRange(0.1, 0.7), y: Math.random() - 0.2 },
       });
 
       confetti({
@@ -65,30 +65,30 @@ export class HomeComponent implements OnInit {
       });
     }, 250);
 
-    (function frame() {
-      const timeLeft = animationEnd - Date.now();
-      if (timeLeft <= 0) return;
+    // (function frame() {
+    //   const timeLeft = animationEnd - Date.now();
+    //   if (timeLeft <= 0) return;
 
-      confetti({
-        particleCount: 2,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: colors
-      });
+    //   confetti({
+    //     particleCount: 2,
+    //     angle: 60,
+    //     spread: 55,
+    //     origin: { x: 0 },
+    //     colors: colors
+    //   });
 
-      confetti({
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: colors
-      });
+    //   confetti({
+    //     particleCount: 2,
+    //     angle: 120,
+    //     spread: 55,
+    //     origin: { x: 1 },
+    //     colors: colors
+    //   });
 
-      if (timeLeft > 0) {
-        requestAnimationFrame(frame);
-      }
-    })();
+    //   if (timeLeft > 0) {
+    //     requestAnimationFrame(frame);
+    //   }
+    // })();
   }
 
   private randomInRange(min: number, max: number): number {
