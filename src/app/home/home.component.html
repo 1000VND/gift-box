@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="box">
+<div *ngIf="!isBackgroundChanged" class="container">
+  <div class="box" [ngClass]="{'open': !isBoxHidden, 'box-hidden': isBoxHidden}" (click)="toggleBox()">
     <div class="box-tape">
       <div class="box-tape-left"></div>
       <div class="box-tape-right"></div>
@@ -18,3 +18,34 @@
     <div class="box-star box-star-5"></div>
   </div>
 </div>
+
+<div *ngIf="isBackgroundChanged" [ngClass]="{'background-change': isBackgroundChanged}" class="balloon-container">
+  <!-- "HAPPY" line -->
+  <div class="balloon-pool1">
+    <div class="balloon1">H</div>
+    <div class="balloon2">A</div>
+    <div class="balloon3">P</div>
+    <div class="balloon4">P</div>
+    <div class="balloon5">Y</div>
+  </div>
+
+  <!-- "BIRTHDAY" line -->
+  <div class="balloon-pool2">
+    <div class="balloon6">B</div>
+    <div class="balloon7">I</div>
+    <div class="balloon8">R</div>
+    <div class="balloon9">T</div>
+    <div class="balloon10">H</div>
+    <div class="balloon11">D</div>
+    <div class="balloon12">A</div>
+    <div class="balloon13">Y</div>
+  </div>
+  <img class="rounded-image" src="assets/trang.jpg" alt="Huyền Trang">
+
+  <button type="button" class="btn btn-light">Lời chúc</button>
+</div>
+
+<audio autoplay loop>
+  <source src="assets/HappyBirthdayPianoVersion.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
