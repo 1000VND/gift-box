@@ -7,10 +7,3 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/birthday' },
     { path: 'birthday', component: HomeComponent },
 ];
-
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
-    exports: [RouterModule],
-})
-export class AppRoutingModule { }
