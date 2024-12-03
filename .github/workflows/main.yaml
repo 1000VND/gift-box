@@ -27,7 +27,7 @@ jobs:
         run: |
           npm install  
           npm run build:prod
-          ngh --dir=dist/browser
+          npx angular-cli-ghpages --dir=dist/browser
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
