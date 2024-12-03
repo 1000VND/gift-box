@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies and Build Angular app
         run: |
           npm install  
-          npm run build --configuration production --base-href="/gift-box/" 
+          npm run build:prod
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
