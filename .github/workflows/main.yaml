@@ -17,13 +17,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          
+
       - name: Install dependencies and Build Angular app
         run: |
           npm install  
           npm run build:prod
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout gh-pages
           git add .
           git commit -m "Auto push to gh-pages"
           git push origin gh-pages
