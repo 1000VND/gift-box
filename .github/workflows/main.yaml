@@ -18,16 +18,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Verify current working directory
-        run: |
-          echo "Current working directory: $(pwd)"  
-          ls -la 
-
       - name: Install dependencies and Build Angular app
         run: |
           npm install  
           npm run build:prod
-          ls -la 
+          git add .
+          git commit -m "Auto push to gh-pages"
+          git push origin gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
