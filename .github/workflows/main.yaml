@@ -23,23 +23,9 @@ jobs:
           npm install  
           npm run build:prod
 
-    
-      - name: Set up Git identity for commit
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Create gh-pages branch if it doesn't exist
-        run: |
-          git fetch origin
-          git checkout -b gh-pages || git checkout gh-pages
-          git add .
-          git commit -m "Auto push to gh-pages"
-          git push origin gh-pages
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           folder: dist/browser  
-          branch: gh-pages  
+          branch: main 
           github_token: ${{ secrets.GH_TOKEN }}
