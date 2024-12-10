@@ -379,34 +379,9 @@
     display: none;
 }
 
-/* Hiệu ứng tràn màu nền từ trong hộp ra khắp màn hình */
 @keyframes backgroundColorChange {
     0% {
-        background-color: #bda9a9; /* Màu sáng ban đầu */
-    }
-
-    10% {
-        background-color: #9f8888; /* Màu dịu hơn */
-    }
-
-    20% {
-        background-color: #6d5757; /* Chuyển dần sang màu tối hơn */
-    }
-
-    30% {
-        background: radial-gradient(circle, rgba(157, 127, 127, 0.9) 0%, rgba(100, 100, 120, 0.7) 50%, rgba(60, 60, 80, 0.5) 100%);
-    }
-
-    50% {
-        background: radial-gradient(circle, rgba(90, 90, 120, 0.8) 0%, rgba(50, 50, 80, 0.6) 60%, rgba(20, 20, 40, 0.4) 100%);
-    }
-
-    70% {
-        background: radial-gradient(circle, rgba(40, 70, 110, 0.8) 0%, rgba(20, 50, 90, 0.6) 50%, rgba(10, 20, 40, 0.5) 100%);
-    }
-
-    90% {
-        background: radial-gradient(circle, rgb(10, 60, 120) 0%, rgb(5, 30, 80) 50%, rgb(2, 15, 40) 100%);
+        background-color: #bda9a9;
     }
 
     100% {
@@ -416,7 +391,7 @@
 
 /* Chuyển màu nền khi mở hộp */
 .balloon-container.background-change {
-    animation: backgroundColorChange 2s ease-out forwards;
+    animation: backgroundColorChange 0.1s ease-out forwards;
 }
 
 /* ********************************************************************************************************************************* */
@@ -429,6 +404,7 @@
     align-items: center;
     height: 100vh;
     width: 100%;
+    overflow-y: scroll;
 }
 
 @media only screen and (max-width: 600px) {
@@ -719,4 +695,102 @@
     50% {
         transform: translateY(-20px) rotate(-6deg);
     }
+}
+
+/* ********************************************************************************************************************************* */
+/* ************************************************ Thiệp chúc mừng **************************************************************** */
+/* ********************************************************************************************************************************* */
+.body-card {
+    height: 100%;
+    margin: 0;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 425px;
+    border: 10px solid #9612eb;
+    margin: 60px auto 0 auto;
+    box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e6f0e6;
+}
+
+.card .text-container {
+    width: 80%;
+    height: 80%;
+    margin: 5% auto auto auto;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.card .text-container #head {
+    font-family: 'Nobile', sans-serif;
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 1.0em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: #331717;
+    font-style: italic;
+    text-align: center;
+}
+
+.card .front {
+    position: absolute;
+    width: 300px;
+    height: 425px;
+    margin: -10px 0px 0px -10px;
+    border: 10px solid #9612eb;
+    backface-visibility: hidden;
+    background-color: #9612eb;
+    background-size: contain;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+}
+
+.card:hover .front {
+    transform: perspective(800px) rotateY(-170deg);
+    background-color: #41718d;
+}
+
+.card:hover .back {
+    transform: perspective(800px) rotateY(-170deg);
+    box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: #d2dcd2;
+}
+
+.card .back {
+    position: absolute;
+    width: 300px;
+    height: 425px;
+    border: 10px solid #9612eb;
+    margin: -10px 0px 0px -10px;
+    backface-visibility: visible;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+    background-color: #e6f0e6;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.imgset {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -215px;
+}
+
+.imgset img {
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
 }

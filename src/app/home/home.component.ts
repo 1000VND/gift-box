@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import confetti from 'canvas-confetti';
 
 @Component({
-  selector: 'birthday',
+  selector: 'birthday-huyen-trang',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
